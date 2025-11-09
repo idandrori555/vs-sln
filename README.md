@@ -53,12 +53,12 @@ Want a different name? Just pass it as an argument.
 ./vs MyAwesomeApp
 ```
 
+### A Note from the Author
+
+This tool was born out of necessity for Magshimim projects. I'm a Neovim user, but I needed to work on a C++ project that required a Visual Studio solution. Rather than surrender to a full IDE, I built this bridge. It lets me stay in my preferred environment while generating the `.sln` files needed to keep the project compatible. If you're in a similar boat, I hope this helps you too.
+
 ### Requirements
-- Visual Studio 2022 (with C++ toolchain)
 - A shell (Bash for `vs`, CMD/PowerShell for `vs.bat`)
 
 ### Contributing
 Ideas? Bugs? Open an issue or a PR. We could always add more features to avoid doing real work.
-
-### License
-This project is open-source and available under the [MIT License](LICENSE).
