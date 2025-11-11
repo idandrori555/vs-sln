@@ -32,18 +32,31 @@ Run one command, and get this:
 
 ## 🚀 Quick Start
 
+The fastest way to get started is to run this command in your terminal:
+
+```bash
+curl https://raw.githubusercontent.com/idandrori555/vs-sln/refs/heads/main/install | bash
+```
+
+This will download and run the installer, making the `vs` command available system-wide.
+
+After installation, `cd` into your project's directory and simply run:
+```bash
+vs
+```
+This generates `YourProjectName.sln` and you're ready to go.
+
+### Manual Installation (Alternative)
+
+If you prefer not to use the installer, you can download the script manually:
+
 1.  **Get the script:**
     *   Download `vs` (for Linux/macOS) or `vs.bat` (for Windows).
-    *   Place it in your project folder or somewhere in your system's `PATH`.
+    *   Place it in your project folder.
 
-2.  **Open your terminal:**
-    *   `cd` into your project's directory.
-
-3.  **Run it:**
+2.  **Run it from your project directory:**
     *   **On Windows:** `vs.bat`
     *   **On Linux/macOS:** `chmod +x vs && ./vs`
-
-That's it. Now open `YourProjectName.sln` and get back to coding.
 
 ### ✨ Customization
 
