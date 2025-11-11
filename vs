@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # Generates minimal VS2022 project files in current directory
-# including optional .filters (.user files)
 
 # ---- Get project name ----
 if [ -n "$1" ]; then
@@ -60,14 +59,19 @@ cat > "$PROJECT_NAME.vcxproj" <<EOF
   </PropertyGroup>
 
   <Import Project="\$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+
   <PropertyGroup Condition="'\$(Configuration)|\$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
+
   <PropertyGroup Condition="'\$(Configuration)|\$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
+
   <Import Project="\$(VCTargetsPath)\Microsoft.Cpp.props" />
 
   <ItemGroup>
@@ -122,9 +126,10 @@ EOF
 } > "$PROJECT_NAME.vcxproj.filters"
 
 # ---- Done ----
-echo "✅ Generated Visual Studio project files:"
+echo "✅ Generated Visual Studio 2022 (v143) project files:"
 echo " - $PROJECT_NAME.sln"
 echo " - $PROJECT_NAME.vcxproj"
 echo " - $PROJECT_NAME.vcxproj.filters (grouped by Source/Headers)"
 echo "Included $(find . -maxdepth 1 \( -name '*.cpp' -o -name '*.c' \) | wc -l) source and $(find . -maxdepth 1 -name '*.h' | wc -l) header files"
+
 
