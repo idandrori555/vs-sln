@@ -3,26 +3,27 @@
 
 set -e  # exit on error
 
-if [[ $EUID -ne 0 ]]; then
-  echo "Please run as root (use sudo)."
+VS_URL="https://raw.githubusercontent.com/idandrori555/vs-sln/refs/heads/main/vs"
+DEST="/usr/local/bin/vs"
+TMP_FILE="/tmp/vs"
+
+echo "📦 Downloading VS-SLN from GitHub..."
+if ! curl -fsSL "$VS_URL" -o "$TMP_FILE"; then
+  echo "❌ Failed to download VS-SLN from $VS_URL"
   exit 1
 fi
 
-if [[ ! -f ./vs ]]; then
-  echo "Error: ./vs not found."
-  exit 1
-fi
+chmod +x "$TMP_FILE"
 
-if [[ ! -x ./vs ]]; then
-  echo "Making ./vs executable..."
-  chmod +x ./vs
-fi
-
-if [[ -f /usr/local/bin/vs ]]; then
-  read -p "/usr/local/bin/vs already exists. Overwrite? [y/N] " ans
+if [[ -f "$DEST" ]]; then
+  read -p "⚠️  $DEST already exists. Overwrite? [y/N] " ans
   [[ $ans != "y" && $ans != "Y" ]] && echo "Aborted." && exit 0
+  sudo rm -f "$DEST"
 fi
 
-mv ./vs /usr/local/bin/vs
-echo "✅ VS-SLN installed successfully at /usr/local/bin/vs"
+echo "🚀 Installing VS-SLN to $DEST..."
+sudo mv "$TMP_FILE" "$DEST"
+
+echo "✅ VS-SLN installed successfully at $DEST"
+echo "   Try running: vs"
 
