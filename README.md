@@ -35,7 +35,7 @@ Run one command, and get this:
 The fastest way to get started is to run this command in your terminal:
 
 ```bash
-curl https://raw.githubusercontent.com/idandrori555/vs-sln/refs/heads/main/install | bash
+curl -fsSL https://raw.githubusercontent.com/idandrori555/vs-sln/refs/heads/main/install | bash
 ```
 
 This will download and run the installer, making the `vs` command available system-wide.
