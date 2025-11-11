@@ -1,0 +1,28 @@
+#!/bin/bash
+# Install VS-SLN utility to /usr/local/bin
+
+set -e  # exit on error
+
+if [[ $EUID -ne 0 ]]; then
+  echo "Please run as root (use sudo)."
+  exit 1
+fi
+
+if [[ ! -f ./vs ]]; then
+  echo "Error: ./vs not found."
+  exit 1
+fi
+
+if [[ ! -x ./vs ]]; then
+  echo "Making ./vs executable..."
+  chmod +x ./vs
+fi
+
+if [[ -f /usr/local/bin/vs ]]; then
+  read -p "/usr/local/bin/vs already exists. Overwrite? [y/N] " ans
+  [[ $ans != "y" && $ans != "Y" ]] && echo "Aborted." && exit 0
+fi
+
+mv ./vs /usr/local/bin/vs
+echo "✅ VS-SLN installed successfully at /usr/local/bin/vs"
+
