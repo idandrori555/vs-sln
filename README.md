@@ -51,11 +51,9 @@ This generates `YourProjectName.sln` and you're ready to go.
 If you prefer not to use the installer, you can download the script manually:
 
 1.  **Get the script:**
-    *   Download `vs` (for Linux/macOS) or `vs.bat` (for Windows).
-    *   Place it in your project folder.
-
+    *   Download `vs` (for Linux/macOS)
+   
 2.  **Run it from your project directory:**
-    *   **On Windows:** `vs.bat`
     *   **On Linux/macOS:** `chmod +x vs && ./vs`
 
 ### ✨ Customization
@@ -71,7 +69,7 @@ Want a different name? Just pass it as an argument.
 This tool was born out of necessity for Magshimim projects. I'm a Neovim user, but I needed to work on a C++ project that required a Visual Studio solution. Rather than surrender to a full IDE, I built this bridge. It lets me stay in my preferred environment while generating the `.sln` files needed to keep the project compatible. If you're in a similar boat, I hope this helps you too.
 
 ### Requirements
-- A shell (Bash for `vs`, CMD/PowerShell for `vs.bat`)
+- A shell (Bash for `vs`)
 
 ### Contributing
 Ideas? Bugs? Open an issue or a PR. We could always add more features to avoid doing real work.
